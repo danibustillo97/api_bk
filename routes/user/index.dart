@@ -7,18 +7,14 @@ import 'package:dart_frog/dart_frog.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   return switch (context.request.method) {
-    HttpMethod.get => _getUsers(),
+    HttpMethod.get => _getUsers(context),
     HttpMethod.post => _createUser(context),
     _ => Future.value(Response(body: 'thi is default'))
   };
 }
 
-Future<Response> _getUsers() async {
-  final prisma = PrismaClient(
-    datasources: const Datasources(
-      db: 'mysql://root@localhost:3306/blog?schema=public',
-    ),
-  );
+Future<Response> _getUsers(RequestContext context) async {
+  final prisma = context.read<PrismaClient>();
 
   final users = (await prisma.user.findMany()).toList();
   return Future.value(
@@ -45,11 +41,7 @@ Future<Response> _createUser(RequestContext context) async {
     );
   }
 
-  final prisma = PrismaClient(
-    datasources: const Datasources(
-      db: 'mysql://root@localhost:3306/blog?schema=public',
-    ),
-  );
+  final prisma = context.read<PrismaClient>();
 
   final user = await prisma.user.create(
     data: UserCreateInput(
