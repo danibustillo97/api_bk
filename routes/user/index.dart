@@ -25,7 +25,6 @@ Future<Response> _getUsers(RequestContext context) async {
 }
 
 Future<Response> _createUser(RequestContext context) async {
-  // ignore: unused_local_variable
   final json = (await context.request.json()) as Map<String, dynamic>;
   final name = json['name'] as String?;
   final lastname = json['lastname'] as String?;
