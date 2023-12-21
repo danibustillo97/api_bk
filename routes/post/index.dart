@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:api_bk/src/generated/prisma/prisma_client.dart';
 import 'package:dart_frog/dart_frog.dart';
 
-Future<Response> onRequest(RequestContext context, String id) async {
+Future<Response> onRequest(RequestContext context) async {
   return switch (context.request.method) {
     HttpMethod.get => _getPosts(context),
-    HttpMethod.post => _createPost(context, id),
+    HttpMethod.post => _createPost(context),
     _ => Future.value(Response(body: 'thi is default'))
   };
 }
@@ -21,7 +21,7 @@ Future<Response> _getPosts(RequestContext context) async {
   );
 }
 
-Future<Response> _createPost(RequestContext context, String id) async {
+Future<Response> _createPost(RequestContext context) async {
   final json = (await context.request.json()) as Map<String, dynamic>;
 
   final title = json['title'] as String?;
@@ -31,8 +31,8 @@ Future<Response> _createPost(RequestContext context, String id) async {
   final description = json['description'] as String?;
   final categories = json['categories'] as String?;
   final slug = json['slug'] as String?;
-  // ignore: unused_local_variable
-  final author = json['author'] as UserCreateNestedOneWithoutPostsInput?;
+  final authorId = json['authorId'] as int?;
+
   // ignore: lines_longer_than_80_chars
   if (title == null ||
       img == null ||
@@ -41,7 +41,7 @@ Future<Response> _createPost(RequestContext context, String id) async {
       description == null ||
       categories == null ||
       slug == null ||
-      author == null) {
+      authorId == null) {
     return Response.json(
       body: {
         'message': 'Add Datos',
@@ -61,7 +61,7 @@ Future<Response> _createPost(RequestContext context, String id) async {
       description: description,
       categories: categories,
       slug: slug,
-      author: author,
+      authorId: authorId,
     ),
   );
 

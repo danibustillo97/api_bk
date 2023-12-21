@@ -16,7 +16,7 @@ model User {
   name       String
   lastname   String
   phone      String    @unique
-  posts Post[]
+  // posts Post[]
 }
 
 model Post {
@@ -29,6 +29,6 @@ model Post {
   categories  String
   slug        String
   published   Boolean @default(false)
-  author      User    @relation(fields: [authorId], references: [id])
+  // author      User    @relation(fields: [authorId], references: [id])
   authorId    Int
 }

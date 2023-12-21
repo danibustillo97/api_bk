@@ -2,7 +2,7 @@ import 'dart:core';
 // ignore: unused_import
 import 'dart:io';
 
-import 'package:api_bk/src/generated/prisma/prisma_client.dart';
+import 'package:api_bk/user_repository.dart';
 import 'package:dart_frog/dart_frog.dart';
 
 Future<Response> onRequest(RequestContext context) async {
@@ -14,9 +14,9 @@ Future<Response> onRequest(RequestContext context) async {
 }
 
 Future<Response> _getUsers(RequestContext context) async {
-  final prisma = context.read<PrismaClient>();
+  final repo = context.read<UserRepository>();
 
-  final users = (await prisma.user.findMany()).toList();
+  final users = await repo.getAll();
   return Future.value(
     Response.json(
       body: users,
@@ -40,16 +40,14 @@ Future<Response> _createUser(RequestContext context) async {
     );
   }
 
-  final prisma = context.read<PrismaClient>();
-
-  final user = await prisma.user.create(
-    data: UserCreateInput(
-      email: email,
-      name: name,
-      lastname: lastname,
-      phone: phone,
-    ),
+  final repo = context.read<UserRepository>();
+  final user = await repo.createUser(
+    email: email,
+    name: name,
+    lastname: lastname,
+    phone: phone,
   );
+
   return Response.json(
     body: {
       'message': 'Saved!',
