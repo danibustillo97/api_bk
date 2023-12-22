@@ -16,7 +16,9 @@ enum UserScalarFieldEnum implements _i1.PrismaEnum {
   email,
   name,
   lastname,
-  phone;
+  phone,
+  username,
+  password;
 
   @override
   String? get originalName => null;
@@ -57,6 +59,8 @@ class UserWhereInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserWhereInput.fromJson(Map<String, dynamic> json) =>
@@ -78,6 +82,10 @@ class UserWhereInput implements _i1.JsonSerializable {
 
   final StringFilter? phone;
 
+  final StringFilter? username;
+
+  final StringFilter? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserWhereInputToJson(this);
 }
@@ -90,6 +98,8 @@ class UserOrderByWithRelationInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserOrderByWithRelationInput.fromJson(Map<String, dynamic> json) =>
@@ -105,6 +115,10 @@ class UserOrderByWithRelationInput implements _i1.JsonSerializable {
 
   final SortOrder? phone;
 
+  final SortOrder? username;
+
+  final SortOrder? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserOrderByWithRelationInputToJson(this);
 }
@@ -115,11 +129,13 @@ class UserWhereUniqueInput implements _i1.JsonSerializable {
     this.id,
     this.email,
     this.phone,
+    this.username,
     this.AND,
     this.OR,
     this.NOT,
     this.name,
     this.lastname,
+    this.password,
   });
 
   factory UserWhereUniqueInput.fromJson(Map<String, dynamic> json) =>
@@ -131,6 +147,8 @@ class UserWhereUniqueInput implements _i1.JsonSerializable {
 
   final String? phone;
 
+  final String? username;
+
   final Iterable<UserWhereInput>? AND;
 
   final Iterable<UserWhereInput>? OR;
@@ -140,6 +158,8 @@ class UserWhereUniqueInput implements _i1.JsonSerializable {
   final StringFilter? name;
 
   final StringFilter? lastname;
+
+  final StringFilter? password;
 
   @override
   Map<String, dynamic> toJson() => _$UserWhereUniqueInputToJson(this);
@@ -153,6 +173,8 @@ class UserOrderByWithAggregationInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
     this.$count,
     this.$avg,
     this.$max,
@@ -172,6 +194,10 @@ class UserOrderByWithAggregationInput implements _i1.JsonSerializable {
   final SortOrder? lastname;
 
   final SortOrder? phone;
+
+  final SortOrder? username;
+
+  final SortOrder? password;
 
   @JsonKey(name: r'_count')
   final UserCountOrderByAggregateInput? $count;
@@ -204,6 +230,8 @@ class UserScalarWhereWithAggregatesInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserScalarWhereWithAggregatesInput.fromJson(
@@ -225,6 +253,10 @@ class UserScalarWhereWithAggregatesInput implements _i1.JsonSerializable {
   final StringWithAggregatesFilter? lastname;
 
   final StringWithAggregatesFilter? phone;
+
+  final StringWithAggregatesFilter? username;
+
+  final StringWithAggregatesFilter? password;
 
   @override
   Map<String, dynamic> toJson() =>
@@ -498,6 +530,8 @@ class UserCreateInput implements _i1.JsonSerializable {
     required this.name,
     required this.lastname,
     required this.phone,
+    required this.username,
+    required this.password,
   });
 
   factory UserCreateInput.fromJson(Map<String, dynamic> json) =>
@@ -511,6 +545,10 @@ class UserCreateInput implements _i1.JsonSerializable {
 
   final String phone;
 
+  final String username;
+
+  final String password;
+
   @override
   Map<String, dynamic> toJson() => _$UserCreateInputToJson(this);
 }
@@ -523,6 +561,8 @@ class UserUncheckedCreateInput implements _i1.JsonSerializable {
     required this.name,
     required this.lastname,
     required this.phone,
+    required this.username,
+    required this.password,
   });
 
   factory UserUncheckedCreateInput.fromJson(Map<String, dynamic> json) =>
@@ -538,6 +578,10 @@ class UserUncheckedCreateInput implements _i1.JsonSerializable {
 
   final String phone;
 
+  final String username;
+
+  final String password;
+
   @override
   Map<String, dynamic> toJson() => _$UserUncheckedCreateInputToJson(this);
 }
@@ -549,6 +593,8 @@ class UserUpdateInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserUpdateInput.fromJson(Map<String, dynamic> json) =>
@@ -562,6 +608,10 @@ class UserUpdateInput implements _i1.JsonSerializable {
 
   final StringFieldUpdateOperationsInput? phone;
 
+  final StringFieldUpdateOperationsInput? username;
+
+  final StringFieldUpdateOperationsInput? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserUpdateInputToJson(this);
 }
@@ -574,6 +624,8 @@ class UserUncheckedUpdateInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserUncheckedUpdateInput.fromJson(Map<String, dynamic> json) =>
@@ -589,6 +641,10 @@ class UserUncheckedUpdateInput implements _i1.JsonSerializable {
 
   final StringFieldUpdateOperationsInput? phone;
 
+  final StringFieldUpdateOperationsInput? username;
+
+  final StringFieldUpdateOperationsInput? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserUncheckedUpdateInputToJson(this);
 }
@@ -601,6 +657,8 @@ class UserCreateManyInput implements _i1.JsonSerializable {
     required this.name,
     required this.lastname,
     required this.phone,
+    required this.username,
+    required this.password,
   });
 
   factory UserCreateManyInput.fromJson(Map<String, dynamic> json) =>
@@ -616,6 +674,10 @@ class UserCreateManyInput implements _i1.JsonSerializable {
 
   final String phone;
 
+  final String username;
+
+  final String password;
+
   @override
   Map<String, dynamic> toJson() => _$UserCreateManyInputToJson(this);
 }
@@ -627,6 +689,8 @@ class UserUpdateManyMutationInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserUpdateManyMutationInput.fromJson(Map<String, dynamic> json) =>
@@ -640,6 +704,10 @@ class UserUpdateManyMutationInput implements _i1.JsonSerializable {
 
   final StringFieldUpdateOperationsInput? phone;
 
+  final StringFieldUpdateOperationsInput? username;
+
+  final StringFieldUpdateOperationsInput? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserUpdateManyMutationInputToJson(this);
 }
@@ -652,6 +720,8 @@ class UserUncheckedUpdateManyInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserUncheckedUpdateManyInput.fromJson(Map<String, dynamic> json) =>
@@ -666,6 +736,10 @@ class UserUncheckedUpdateManyInput implements _i1.JsonSerializable {
   final StringFieldUpdateOperationsInput? lastname;
 
   final StringFieldUpdateOperationsInput? phone;
+
+  final StringFieldUpdateOperationsInput? username;
+
+  final StringFieldUpdateOperationsInput? password;
 
   @override
   Map<String, dynamic> toJson() => _$UserUncheckedUpdateManyInputToJson(this);
@@ -1047,6 +1121,8 @@ class UserCountOrderByAggregateInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserCountOrderByAggregateInput.fromJson(Map<String, dynamic> json) =>
@@ -1061,6 +1137,10 @@ class UserCountOrderByAggregateInput implements _i1.JsonSerializable {
   final SortOrder? lastname;
 
   final SortOrder? phone;
+
+  final SortOrder? username;
+
+  final SortOrder? password;
 
   @override
   Map<String, dynamic> toJson() => _$UserCountOrderByAggregateInputToJson(this);
@@ -1087,6 +1167,8 @@ class UserMaxOrderByAggregateInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserMaxOrderByAggregateInput.fromJson(Map<String, dynamic> json) =>
@@ -1102,6 +1184,10 @@ class UserMaxOrderByAggregateInput implements _i1.JsonSerializable {
 
   final SortOrder? phone;
 
+  final SortOrder? username;
+
+  final SortOrder? password;
+
   @override
   Map<String, dynamic> toJson() => _$UserMaxOrderByAggregateInputToJson(this);
 }
@@ -1114,6 +1200,8 @@ class UserMinOrderByAggregateInput implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserMinOrderByAggregateInput.fromJson(Map<String, dynamic> json) =>
@@ -1128,6 +1216,10 @@ class UserMinOrderByAggregateInput implements _i1.JsonSerializable {
   final SortOrder? lastname;
 
   final SortOrder? phone;
+
+  final SortOrder? username;
+
+  final SortOrder? password;
 
   @override
   Map<String, dynamic> toJson() => _$UserMinOrderByAggregateInputToJson(this);
@@ -1819,6 +1911,8 @@ class User implements _i1.JsonSerializable {
     required this.name,
     required this.lastname,
     required this.phone,
+    required this.username,
+    required this.password,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -1832,6 +1926,10 @@ class User implements _i1.JsonSerializable {
   final String lastname;
 
   final String phone;
+
+  final String username;
+
+  final String password;
 
   @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
@@ -2952,6 +3050,8 @@ class UserGroupByOutputType implements _i1.JsonSerializable {
     this.name,
     this.lastname,
     this.phone,
+    this.username,
+    this.password,
   });
 
   factory UserGroupByOutputType.fromJson(Map<String, dynamic> json) =>
@@ -2966,6 +3066,10 @@ class UserGroupByOutputType implements _i1.JsonSerializable {
   final String? lastname;
 
   final String? phone;
+
+  final String? username;
+
+  final String? password;
 
   @override
   Map<String, dynamic> toJson() => _$UserGroupByOutputTypeToJson(this);
@@ -3238,6 +3342,32 @@ class UserCountAggregateOutputType {
     return query(const []).then((value) => (value as int));
   }
 
+  Future<int> username() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'username',
+          fields: fields,
+        )
+      ]),
+      key: r'username',
+    );
+    return query(const []).then((value) => (value as int));
+  }
+
+  Future<int> password() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'password',
+          fields: fields,
+        )
+      ]),
+      key: r'password',
+    );
+    return query(const []).then((value) => (value as int));
+  }
+
   Future<int> $all() {
     final query = _i1.PrismaFluent.queryBuilder(
       query: (fields) => $query([
@@ -3359,6 +3489,32 @@ class UserMinAggregateOutputType {
     );
     return query(const []).then((value) => (value as String?));
   }
+
+  Future<String?> username() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'username',
+          fields: fields,
+        )
+      ]),
+      key: r'username',
+    );
+    return query(const []).then((value) => (value as String?));
+  }
+
+  Future<String?> password() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'password',
+          fields: fields,
+        )
+      ]),
+      key: r'password',
+    );
+    return query(const []).then((value) => (value as String?));
+  }
 }
 
 class UserMaxAggregateOutputType {
@@ -3427,6 +3583,32 @@ class UserMaxAggregateOutputType {
         )
       ]),
       key: r'phone',
+    );
+    return query(const []).then((value) => (value as String?));
+  }
+
+  Future<String?> username() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'username',
+          fields: fields,
+        )
+      ]),
+      key: r'username',
+    );
+    return query(const []).then((value) => (value as String?));
+  }
+
+  Future<String?> password() {
+    final query = _i1.PrismaFluent.queryBuilder(
+      query: (fields) => $query([
+        _i2.GraphQLField(
+          r'password',
+          fields: fields,
+        )
+      ]),
+      key: r'password',
     );
     return query(const []).then((value) => (value as String?));
   }
@@ -3957,7 +4139,7 @@ class PrismaClient extends _i1.BasePrismaClient<PrismaClient> {
     final engine = _i5.BinaryEngine(
       logger: logger,
       schema:
-          r'Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAiZGFydCBydW4gb3JtIgp9CgpkYXRhc291cmNlIGRiIHsKICBwcm92aWRlciA9ICJteXNxbCIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgICBJbnQgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgZW1haWwgICAgICBTdHJpbmcgIEB1bmlxdWUKICBuYW1lICAgICAgIFN0cmluZwogIGxhc3RuYW1lICAgU3RyaW5nCiAgcGhvbmUgICAgICBTdHJpbmcgICAgQHVuaXF1ZQogIC8vIHBvc3RzIFBvc3RbXQp9Cgptb2RlbCBQb3N0IHsKICBpZCAgICAgICAgICBJbnQgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgdGl0bGUgICAgICAgU3RyaW5nCiAgaW1nICAgICAgICAgU3RyaW5nCiAgdGFncyAgICAgICAgU3RyaW5nCiAgZGF0ZSAgICAgICAgU3RyaW5nCiAgZGVzY3JpcHRpb24gU3RyaW5nCiAgY2F0ZWdvcmllcyAgU3RyaW5nCiAgc2x1ZyAgICAgICAgU3RyaW5nCiAgcHVibGlzaGVkICAgQm9vbGVhbiBAZGVmYXVsdChmYWxzZSkKICAvLyBhdXRob3IgICAgICBVc2VyICAgIEByZWxhdGlvbihmaWVsZHM6IFthdXRob3JJZF0sIHJlZmVyZW5jZXM6IFtpZF0pCiAgYXV0aG9ySWQgICAgSW50Cn0=',
+          r'Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAiZGFydCBydW4gb3JtIgp9CgpkYXRhc291cmNlIGRiIHsKICBwcm92aWRlciA9ICJteXNxbCIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgICBJbnQgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgZW1haWwgICAgICBTdHJpbmcgIEB1bmlxdWUKICBuYW1lICAgICAgIFN0cmluZwogIGxhc3RuYW1lICAgU3RyaW5nCiAgcGhvbmUgICAgICBTdHJpbmcgICAgQHVuaXF1ZQogIHVzZXJuYW1lICAgU3RyaW5nICAgIEB1bmlxdWUKICBwYXNzd29yZCAgIFN0cmluZwogIC8vIHBvc3RzIFBvc3RbXQp9Cgptb2RlbCBQb3N0IHsKICBpZCAgICAgICAgICBJbnQgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgdGl0bGUgICAgICAgU3RyaW5nCiAgaW1nICAgICAgICAgU3RyaW5nCiAgdGFncyAgICAgICAgU3RyaW5nCiAgZGF0ZSAgICAgICAgU3RyaW5nCiAgZGVzY3JpcHRpb24gU3RyaW5nCiAgY2F0ZWdvcmllcyAgU3RyaW5nCiAgc2x1ZyAgICAgICAgU3RyaW5nCiAgcHVibGlzaGVkICAgQm9vbGVhbiBAZGVmYXVsdChmYWxzZSkKICAvLyBhdXRob3IgICAgICBVc2VyICAgIEByZWxhdGlvbihmaWVsZHM6IFthdXRob3JJZF0sIHJlZmVyZW5jZXM6IFtpZF0pCiAgYXV0aG9ySWQgICAgSW50Cn0=',
       datasources: datasources?.toJson().cast() ?? const {},
       executable:
           r'C:\Users\Mayor\OneDrive\Documentos\dart_frog_project\api_bk\node_modules\prisma\query-engine-windows.exe',

@@ -29,6 +29,12 @@ UserWhereInput _$UserWhereInputFromJson(Map<String, dynamic> json) =>
       phone: json['phone'] == null
           ? null
           : StringFilter.fromJson(json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringFilter.fromJson(json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFilter.fromJson(json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserWhereInputToJson(UserWhereInput instance) {
@@ -48,6 +54,8 @@ Map<String, dynamic> _$UserWhereInputToJson(UserWhereInput instance) {
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -59,6 +67,8 @@ UserOrderByWithRelationInput _$UserOrderByWithRelationInputFromJson(
       name: $enumDecodeNullable(_$SortOrderEnumMap, json['name']),
       lastname: $enumDecodeNullable(_$SortOrderEnumMap, json['lastname']),
       phone: $enumDecodeNullable(_$SortOrderEnumMap, json['phone']),
+      username: $enumDecodeNullable(_$SortOrderEnumMap, json['username']),
+      password: $enumDecodeNullable(_$SortOrderEnumMap, json['password']),
     );
 
 Map<String, dynamic> _$UserOrderByWithRelationInputToJson(
@@ -76,6 +86,8 @@ Map<String, dynamic> _$UserOrderByWithRelationInputToJson(
   writeNotNull('name', _$SortOrderEnumMap[instance.name]);
   writeNotNull('lastname', _$SortOrderEnumMap[instance.lastname]);
   writeNotNull('phone', _$SortOrderEnumMap[instance.phone]);
+  writeNotNull('username', _$SortOrderEnumMap[instance.username]);
+  writeNotNull('password', _$SortOrderEnumMap[instance.password]);
   return val;
 }
 
@@ -90,6 +102,7 @@ UserWhereUniqueInput _$UserWhereUniqueInputFromJson(
       id: json['id'] as int?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
+      username: json['username'] as String?,
       AND: (json['AND'] as List<dynamic>?)
           ?.map((e) => UserWhereInput.fromJson(e as Map<String, dynamic>)),
       OR: (json['OR'] as List<dynamic>?)
@@ -102,6 +115,9 @@ UserWhereUniqueInput _$UserWhereUniqueInputFromJson(
       lastname: json['lastname'] == null
           ? null
           : StringFilter.fromJson(json['lastname'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFilter.fromJson(json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserWhereUniqueInputToJson(
@@ -117,11 +133,13 @@ Map<String, dynamic> _$UserWhereUniqueInputToJson(
   writeNotNull('id', instance.id);
   writeNotNull('email', instance.email);
   writeNotNull('phone', instance.phone);
+  writeNotNull('username', instance.username);
   writeNotNull('AND', instance.AND?.map((e) => e.toJson()).toList());
   writeNotNull('OR', instance.OR?.map((e) => e.toJson()).toList());
   writeNotNull('NOT', instance.NOT?.map((e) => e.toJson()).toList());
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -133,6 +151,8 @@ UserOrderByWithAggregationInput _$UserOrderByWithAggregationInputFromJson(
       name: $enumDecodeNullable(_$SortOrderEnumMap, json['name']),
       lastname: $enumDecodeNullable(_$SortOrderEnumMap, json['lastname']),
       phone: $enumDecodeNullable(_$SortOrderEnumMap, json['phone']),
+      username: $enumDecodeNullable(_$SortOrderEnumMap, json['username']),
+      password: $enumDecodeNullable(_$SortOrderEnumMap, json['password']),
       $count: json['_count'] == null
           ? null
           : UserCountOrderByAggregateInput.fromJson(
@@ -170,6 +190,8 @@ Map<String, dynamic> _$UserOrderByWithAggregationInputToJson(
   writeNotNull('name', _$SortOrderEnumMap[instance.name]);
   writeNotNull('lastname', _$SortOrderEnumMap[instance.lastname]);
   writeNotNull('phone', _$SortOrderEnumMap[instance.phone]);
+  writeNotNull('username', _$SortOrderEnumMap[instance.username]);
+  writeNotNull('password', _$SortOrderEnumMap[instance.password]);
   writeNotNull('_count', instance.$count?.toJson());
   writeNotNull('_avg', instance.$avg?.toJson());
   writeNotNull('_max', instance.$max?.toJson());
@@ -210,6 +232,14 @@ UserScalarWhereWithAggregatesInput _$UserScalarWhereWithAggregatesInputFromJson(
           ? null
           : StringWithAggregatesFilter.fromJson(
               json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringWithAggregatesFilter.fromJson(
+              json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringWithAggregatesFilter.fromJson(
+              json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserScalarWhereWithAggregatesInputToJson(
@@ -230,6 +260,8 @@ Map<String, dynamic> _$UserScalarWhereWithAggregatesInputToJson(
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -550,6 +582,8 @@ UserCreateInput _$UserCreateInputFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       lastname: json['lastname'] as String,
       phone: json['phone'] as String,
+      username: json['username'] as String,
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$UserCreateInputToJson(UserCreateInput instance) =>
@@ -558,6 +592,8 @@ Map<String, dynamic> _$UserCreateInputToJson(UserCreateInput instance) =>
       'name': instance.name,
       'lastname': instance.lastname,
       'phone': instance.phone,
+      'username': instance.username,
+      'password': instance.password,
     };
 
 UserUncheckedCreateInput _$UserUncheckedCreateInputFromJson(
@@ -568,6 +604,8 @@ UserUncheckedCreateInput _$UserUncheckedCreateInputFromJson(
       name: json['name'] as String,
       lastname: json['lastname'] as String,
       phone: json['phone'] as String,
+      username: json['username'] as String,
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$UserUncheckedCreateInputToJson(
@@ -585,6 +623,8 @@ Map<String, dynamic> _$UserUncheckedCreateInputToJson(
   val['name'] = instance.name;
   val['lastname'] = instance.lastname;
   val['phone'] = instance.phone;
+  val['username'] = instance.username;
+  val['password'] = instance.password;
   return val;
 }
 
@@ -606,6 +646,14 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
           ? null
           : StringFieldUpdateOperationsInput.fromJson(
               json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) {
@@ -621,6 +669,8 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) {
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -647,6 +697,14 @@ UserUncheckedUpdateInput _$UserUncheckedUpdateInputFromJson(
           ? null
           : StringFieldUpdateOperationsInput.fromJson(
               json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserUncheckedUpdateInputToJson(
@@ -664,6 +722,8 @@ Map<String, dynamic> _$UserUncheckedUpdateInputToJson(
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -674,6 +734,8 @@ UserCreateManyInput _$UserCreateManyInputFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       lastname: json['lastname'] as String,
       phone: json['phone'] as String,
+      username: json['username'] as String,
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$UserCreateManyInputToJson(UserCreateManyInput instance) {
@@ -690,6 +752,8 @@ Map<String, dynamic> _$UserCreateManyInputToJson(UserCreateManyInput instance) {
   val['name'] = instance.name;
   val['lastname'] = instance.lastname;
   val['phone'] = instance.phone;
+  val['username'] = instance.username;
+  val['password'] = instance.password;
   return val;
 }
 
@@ -712,6 +776,14 @@ UserUpdateManyMutationInput _$UserUpdateManyMutationInputFromJson(
           ? null
           : StringFieldUpdateOperationsInput.fromJson(
               json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserUpdateManyMutationInputToJson(
@@ -728,6 +800,8 @@ Map<String, dynamic> _$UserUpdateManyMutationInputToJson(
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -754,6 +828,14 @@ UserUncheckedUpdateManyInput _$UserUncheckedUpdateManyInputFromJson(
           ? null
           : StringFieldUpdateOperationsInput.fromJson(
               json['phone'] as Map<String, dynamic>),
+      username: json['username'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['username'] as Map<String, dynamic>),
+      password: json['password'] == null
+          ? null
+          : StringFieldUpdateOperationsInput.fromJson(
+              json['password'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserUncheckedUpdateManyInputToJson(
@@ -771,6 +853,8 @@ Map<String, dynamic> _$UserUncheckedUpdateManyInputToJson(
   writeNotNull('name', instance.name?.toJson());
   writeNotNull('lastname', instance.lastname?.toJson());
   writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('username', instance.username?.toJson());
+  writeNotNull('password', instance.password?.toJson());
   return val;
 }
 
@@ -1223,6 +1307,8 @@ UserCountOrderByAggregateInput _$UserCountOrderByAggregateInputFromJson(
       name: $enumDecodeNullable(_$SortOrderEnumMap, json['name']),
       lastname: $enumDecodeNullable(_$SortOrderEnumMap, json['lastname']),
       phone: $enumDecodeNullable(_$SortOrderEnumMap, json['phone']),
+      username: $enumDecodeNullable(_$SortOrderEnumMap, json['username']),
+      password: $enumDecodeNullable(_$SortOrderEnumMap, json['password']),
     );
 
 Map<String, dynamic> _$UserCountOrderByAggregateInputToJson(
@@ -1240,6 +1326,8 @@ Map<String, dynamic> _$UserCountOrderByAggregateInputToJson(
   writeNotNull('name', _$SortOrderEnumMap[instance.name]);
   writeNotNull('lastname', _$SortOrderEnumMap[instance.lastname]);
   writeNotNull('phone', _$SortOrderEnumMap[instance.phone]);
+  writeNotNull('username', _$SortOrderEnumMap[instance.username]);
+  writeNotNull('password', _$SortOrderEnumMap[instance.password]);
   return val;
 }
 
@@ -1271,6 +1359,8 @@ UserMaxOrderByAggregateInput _$UserMaxOrderByAggregateInputFromJson(
       name: $enumDecodeNullable(_$SortOrderEnumMap, json['name']),
       lastname: $enumDecodeNullable(_$SortOrderEnumMap, json['lastname']),
       phone: $enumDecodeNullable(_$SortOrderEnumMap, json['phone']),
+      username: $enumDecodeNullable(_$SortOrderEnumMap, json['username']),
+      password: $enumDecodeNullable(_$SortOrderEnumMap, json['password']),
     );
 
 Map<String, dynamic> _$UserMaxOrderByAggregateInputToJson(
@@ -1288,6 +1378,8 @@ Map<String, dynamic> _$UserMaxOrderByAggregateInputToJson(
   writeNotNull('name', _$SortOrderEnumMap[instance.name]);
   writeNotNull('lastname', _$SortOrderEnumMap[instance.lastname]);
   writeNotNull('phone', _$SortOrderEnumMap[instance.phone]);
+  writeNotNull('username', _$SortOrderEnumMap[instance.username]);
+  writeNotNull('password', _$SortOrderEnumMap[instance.password]);
   return val;
 }
 
@@ -1299,6 +1391,8 @@ UserMinOrderByAggregateInput _$UserMinOrderByAggregateInputFromJson(
       name: $enumDecodeNullable(_$SortOrderEnumMap, json['name']),
       lastname: $enumDecodeNullable(_$SortOrderEnumMap, json['lastname']),
       phone: $enumDecodeNullable(_$SortOrderEnumMap, json['phone']),
+      username: $enumDecodeNullable(_$SortOrderEnumMap, json['username']),
+      password: $enumDecodeNullable(_$SortOrderEnumMap, json['password']),
     );
 
 Map<String, dynamic> _$UserMinOrderByAggregateInputToJson(
@@ -1316,6 +1410,8 @@ Map<String, dynamic> _$UserMinOrderByAggregateInputToJson(
   writeNotNull('name', _$SortOrderEnumMap[instance.name]);
   writeNotNull('lastname', _$SortOrderEnumMap[instance.lastname]);
   writeNotNull('phone', _$SortOrderEnumMap[instance.phone]);
+  writeNotNull('username', _$SortOrderEnumMap[instance.username]);
+  writeNotNull('password', _$SortOrderEnumMap[instance.password]);
   return val;
 }
 
@@ -2021,6 +2117,8 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       name: json['name'] as String,
       lastname: json['lastname'] as String,
       phone: json['phone'] as String,
+      username: json['username'] as String,
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -2029,6 +2127,8 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'name': instance.name,
       'lastname': instance.lastname,
       'phone': instance.phone,
+      'username': instance.username,
+      'password': instance.password,
     };
 
 Post _$PostFromJson(Map<String, dynamic> json) => Post(
@@ -2065,6 +2165,8 @@ UserGroupByOutputType _$UserGroupByOutputTypeFromJson(
       name: json['name'] as String?,
       lastname: json['lastname'] as String?,
       phone: json['phone'] as String?,
+      username: json['username'] as String?,
+      password: json['password'] as String?,
     );
 
 Map<String, dynamic> _$UserGroupByOutputTypeToJson(
@@ -2082,6 +2184,8 @@ Map<String, dynamic> _$UserGroupByOutputTypeToJson(
   writeNotNull('name', instance.name);
   writeNotNull('lastname', instance.lastname);
   writeNotNull('phone', instance.phone);
+  writeNotNull('username', instance.username);
+  writeNotNull('password', instance.password);
   return val;
 }
 

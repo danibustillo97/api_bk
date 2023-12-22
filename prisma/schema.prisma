@@ -16,6 +16,8 @@ model User {
   name       String
   lastname   String
   phone      String    @unique
+  username   String    @unique
+  password   String
   // posts Post[]
 }
 

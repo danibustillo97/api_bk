@@ -7,7 +7,10 @@ environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
+  crypto: ^3.0.3
   dart_frog: ^1.0.0
+  dart_frog_auth: ^1.1.0
+  dart_jsonwebtoken: ^2.12.1
   json_annotation: ^4.8.1
   orm: ^3.4.5
 

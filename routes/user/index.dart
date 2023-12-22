@@ -30,8 +30,15 @@ Future<Response> _createUser(RequestContext context) async {
   final lastname = json['lastname'] as String?;
   final email = json['email'] as String?;
   final phone = json['phone'] as String?;
+  final username = json['username'] as String?;
+  final password = json['password'] as String?;
 
-  if (name == null || lastname == null || email == null || phone == null) {
+  if (name == null ||
+      lastname == null ||
+      email == null ||
+      phone == null ||
+      username == null ||
+      password == null) {
     return Response.json(
       body: {
         'message': 'Add Datos',
@@ -46,6 +53,8 @@ Future<Response> _createUser(RequestContext context) async {
     name: name,
     lastname: lastname,
     phone: phone,
+    username: username,
+    password: password,
   );
 
   return Response.json(
